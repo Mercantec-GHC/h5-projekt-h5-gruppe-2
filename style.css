@@ -1,0 +1,90 @@
+.ColumnDisplay {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1;
+    min-width: 0;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+}
+
+.LeftColumn {
+    display: flex;
+    flex: 1;
+}
+
+.MiddleColumn {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    align-items: center;
+}
+
+.RightColumn {
+    display: flex;
+    flex: 1;
+}
+
+#dataToolLine {
+    display: flex;
+    width: calc(100% - 36px);
+    justify-content: space-between;
+    /* margin-bottom: 16px; */
+}
+
+#dataToolLineLeft {
+    
+}
+
+#dataToolLineRight {
+    
+}
+
+.GraphContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 2 / 1;
+    min-width: 0;
+}
+
+.Graph {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.TableContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+
+    width: 60%;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.Table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+}
+
+.Table th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.Table td, th {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+.Table tr:nth-child(even){
+    background-color: #f2f2f2;
+}

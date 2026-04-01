@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="chart.umd.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="ColumnDisplay">
+        <div class="LeftColumn"></div>
+        <div class="MiddleColumn">
+            <div id="dataToolLine">
+                <div id="dataToolLineLeft">
+                    <button type="button">1 time</button>
+                    <button type="button">6 timer</button>
+                    <button type="button">24 timer</button>
+                    <button type="button">3 dage</button>
+                    <button type="button">1 uge</button>
+                </div>
+                <div id="dataToolLineRight">
+                    <input id="dateInput" name="dateInput" type="date"/>
+                    <input id="timeInputHour" name="timeInputHour" type="text" max="23" min="0" size="2"/>
+                    <span>:</span>
+                    <input id="timeInputMinute" name="timeInputMinute" type="text" max="59" min="0" size="2"/>
+                    <button type="button" onclick="NowPressed()">Nu</button>
+                </div>
+            </div>
+            <div id="testGraphDiv" class="GraphContainer">
+                <canvas id="testGraph" class="Graph"></canvas>
+            </div>
+            <div id="testTableDiv" class="TableContainer"></div>
+        </div>
+        <div class="RightColumn"></div>
+    </div>
+    
+</body>

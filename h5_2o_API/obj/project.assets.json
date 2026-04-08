@@ -2463,6 +2463,16 @@
         "build": {
           "buildTransitive/net8.0/_._": {}
         }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
       }
     }
   },
@@ -6662,6 +6672,11 @@
         "system.security.cryptography.protecteddata.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "Models/Models.csproj",
+      "msbuildProject": "Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6671,6 +6686,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.2",
+      "Models >= 1.0.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.1",
       "Swashbuckle.AspNetCore >= 10.1.7"
     ]
@@ -6699,7 +6715,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/saa/Documents/GitHub/h5-projekt-h5-gruppe-2/h5_2o_API/Models/Models.csproj": {
+              "projectPath": "/Users/saa/Documents/GitHub/h5-projekt-h5-gruppe-2/h5_2o_API/Models/Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

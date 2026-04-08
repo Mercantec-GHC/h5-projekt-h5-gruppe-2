@@ -1,4 +1,6 @@
-﻿namespace Models;
+using System;
+
+namespace h5_2o_MAIN.Models;
 
 public class Measurement
 {

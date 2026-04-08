@@ -2,3 +2,16 @@
 appsettings.json
 appsettings.Development.json
 appsettings.*.json
+
+bin/
+obj/
+
+.vs/                # Visual Studio cache og indstillinger
+.vscode/            # VS Code indstillinger (valgfrit)
+*.user              # Bruger-specifikke projektindstillinger
+*.suo               # Solution user options
+
+packages/
+
+.DS_Store           # macOS
+Thumbs.db           # Windows

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Platform</title>
     <link rel="stylesheet" href="style.css">
     
@@ -16,11 +17,13 @@
         <div class="MiddleColumn">
             <div id="dataToolLine">
                 <div id="dataToolLineLeft">
-                    <button type="button">1 time</button>
-                    <button type="button">6 timer</button>
-                    <button type="button">24 timer</button>
-                    <button type="button">3 dage</button>
-                    <button type="button">1 uge</button>
+                    <button type="button" onclick="SetUpTable(0)">1 time</button>
+                    <button type="button" onclick="SetUpTable(1)">6 timer</button>
+                    <button type="button" onclick="SetUpTable(2)">24 timer</button>
+                    <button type="button" onclick="SetUpTable(3)">3 dage</button>
+                    <button type="button" onclick="SetUpTable(4)">7 dage</button>
+                    <button type="button" onclick="SetUpTable(5)">30 dage</button>
+                    <button type="button" onclick="TestFetch()">Test</button>
                 </div>
                 <div id="dataToolLineRight">
                     <input id="dateInput" name="dateInput" type="date"/>

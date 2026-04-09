@@ -1,29 +1,35 @@
 import serial
 import pika
-import time
+import json
+from datetime import datetime, UTC
 
-# Serial (Arduino)
-ser = serial.Serial('COM5', 9600)  
+# Serial connection (sensor)
+ser = serial.Serial('COM5', 9600)
 
 # RabbitMQ connection
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters('localhost')
+    pika.ConnectionParameters('10.133.51.104')
 )
-print("Connected to RabbitMQ")
 channel = connection.channel()
+channel.queue_declare(queue='sensor')
 
-channel.queue_declare(queue='sensor_data')
+print("Producer started...")
 
 while True:
     line = ser.readline().decode().strip()
 
     try:
         value = int(line)
+        timestamp = datetime.now(UTC)
 
-        message = f"{time.time()},{value}"
+        message = json.dumps({
+            "timestamp": timestamp.isoformat(),
+            "value": value
+        })
+
         channel.basic_publish(
             exchange='',
-            routing_key='sensor_data',
+            routing_key='sensor',
             body=message
         )
 

@@ -8,37 +8,11 @@
     <title>Platform</title>
     <link rel="stylesheet" href="style.css">
     
-    <script src="chart.umd.min.js"></script>
-    <script defer src="script.js"></script>
+    <script defer src="scr_common.js"></script>
+    <script defer src="scr_home.js"></script>
 </head>
 <body>
-    <div class="ColumnDisplay">
-        <div class="LeftColumn"></div>
-        <div class="MiddleColumn">
-            <div id="dataToolLine">
-                <div id="dataToolLineLeft">
-                    <button type="button" onclick="SetUpTable(0)">1 time</button>
-                    <button type="button" onclick="SetUpTable(1)">6 timer</button>
-                    <button type="button" onclick="SetUpTable(2)">24 timer</button>
-                    <button type="button" onclick="SetUpTable(3)">3 dage</button>
-                    <button type="button" onclick="SetUpTable(4)">7 dage</button>
-                    <button type="button" onclick="SetUpTable(5)">30 dage</button>
-                    <button type="button" onclick="TestFetch()">Test</button>
-                </div>
-                <div id="dataToolLineRight">
-                    <input id="dateInput" name="dateInput" type="date"/>
-                    <input id="timeInputHour" name="timeInputHour" type="text" max="23" min="0" size="2"/>
-                    <span>:</span>
-                    <input id="timeInputMinute" name="timeInputMinute" type="text" max="59" min="0" size="2"/>
-                    <button type="button" onclick="NowPressed()">Nu</button>
-                </div>
-            </div>
-            <div id="testGraphDiv" class="GraphContainer">
-                <canvas id="testGraph" class="Graph"></canvas>
-            </div>
-            <div id="testTableDiv" class="TableContainer"></div>
-        </div>
-        <div class="RightColumn"></div>
+    <div class="TopBar">
+        <div id="userPivot"></div>
     </div>
-    
 </body>

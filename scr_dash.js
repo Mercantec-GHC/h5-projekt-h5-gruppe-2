@@ -56,7 +56,7 @@ function Entry() {
     UpdateRightTopBar();
     
     NowPressed();
-    SetUpTable(2);
+    SetUpTableTest(2);
 
     minuteInput.addEventListener("input", ValidateMinuteInput);
     hourInput.addEventListener("input", ValidateHourInput);
@@ -92,6 +92,7 @@ function ParseJSONUTC(dataJSON) {
     return data;
 }
 
+// Bygger diagrammet og indsætter data
 function SetUpGraph(data) {
     if (currentChart !== null) {
         currentChart.destroy();
@@ -101,12 +102,12 @@ function SetUpGraph(data) {
         document.getElementById("graph"), {
             type: "line",
             data: {
+                // Fjerner tidszonen fra label
                 labels: data.map(row => row.Time.substring(0, 20)),
                 datasets: [
                     {
                         label: "Lysstyrke",
                         data: data.map(row => row.Intensity),
-                        //color: "#FFFFFF"
                     }
                 ]
             },
@@ -118,10 +119,12 @@ function SetUpGraph(data) {
     );
 }
 
-function SetUpTable(num) {
+// Bygger tabellen. Bruges med testdata
+function SetUpTableTest(num) {
     const tableDiv = document.getElementById("tableDiv");
     let dataArray = [];
 
+    // Nulstiller tabellen
     if (tableDiv.children.length !== 0) {
         tableDiv.removeChild(tableDiv.firstChild);
     }
@@ -144,18 +147,18 @@ function SetUpTable(num) {
 
     table.appendChild(hRow);
 
-    PopulateTable(table, dataArray, num);
-
-    // Skal flyttes senere
+    PopulateTableTest(table, dataArray, num);
     SetUpGraph(dataArray);
 
     tableDiv.appendChild(table);
 }
 
-function SetUpTableReal(data) {
+// Bygger tabellen. Bruges med rigtig data
+function SetUpTable(data) {
     const tableDiv = document.getElementById("tableDiv");
     let dataArray = [];
 
+    // Nulstiller tabellen
     if (tableDiv.children.length !== 0) {
         tableDiv.removeChild(tableDiv.firstChild);
     }
@@ -178,16 +181,14 @@ function SetUpTableReal(data) {
 
     table.appendChild(hRow);
 
-    PopulateTableReal(table, dataArray, data);
-
-    // Skal flyttes senere
+    PopulateTable(table, dataArray, data);
     SetUpGraph(data);
 
     tableDiv.appendChild(table);
 }
 
-// Bruges kun til testdata
-function PopulateTable(table, dataArray, num) {
+// Står for tabellens indhold. Bruges kun til testdata
+function PopulateTableTest(table, dataArray, num) {
     let dataTable;
 
     switch (num) {
@@ -258,11 +259,13 @@ function PopulateTable(table, dataArray, num) {
     }
 }
 
-function PopulateTableReal(table, dataArray, data) {
+// Står for tabellens indhold. Bruges af rigtig data
+function PopulateTable(table, dataArray, data) {
     for (let i = 0; i < data.length; i++) {
         const newData = ParseJSONUTC(data[i]);
         dataArray.push(newData);
 
+        // Hvis første objekt i data, eller anden dato, opret ny sticky header med dato
         if (i === 0 || currentDay !== lastDay) {
             const row = document.createElement("tr");
             row.className = "TablePatternBreaker";
@@ -284,7 +287,7 @@ function PopulateTableReal(table, dataArray, data) {
         const row = document.createElement("tr");
 
         const time = document.createElement("td");
-        const timeString = newData.Time.substring(12, 20);
+        const timeString = newData.Time.substring(12, 20); // Inkluderer ikke dato
         time.innerText = timeString;
         row.appendChild(time);
 
@@ -332,6 +335,7 @@ function ValidateHourInput() {
     }
 }
 
+// Når man trykker på "Nu"-knappen. Tager lokal tid, oversætter det til UTC, og indsætter det i de relevante felter på siden
 function NowPressed() {
     const temp = Temporal.Now.instant();
     const time = temp.toZonedDateTimeISO("Europe/Copenhagen");
@@ -357,9 +361,11 @@ function NowPressed() {
     minuteInput.value = String(time.minute);
 }
 
-function TestTime() {
+// Oversætter indhold i Date picker og felter til timer og minutter til en ZonedDateTime string (UTC)
+function TimeInputToUTC() {
     const dateInput = document.getElementById("dateInput");
 
+    // Tid gemmes i Date pickeren som YYYY-MM-DD, så tager karaktererne 0-3, 5-6, og 8-9
     const year = dateInput.value.substring(0, 4);
     const month = dateInput.value.substring(5, 7);
     const day = dateInput.value.substring(8, 10);
@@ -386,8 +392,7 @@ async function TestFetch() {
     
     fetch("http://10.133.51.104:8080/api/measurement", requestOptions)
         .then((response) => response.text())
-        .then((result) => SetUpTableReal(JSON.parse(result)))
-        //.then((result) => console.log(result))
+        .then((result) => SetUpTable(JSON.parse(result)))
         .catch((error) => console.error(error));
 }
 

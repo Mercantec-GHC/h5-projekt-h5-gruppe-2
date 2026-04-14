@@ -15,6 +15,7 @@ function Entry() {
     formRegister.addEventListener("animationcancel", RegisterFadeCallback);
 }
 
+// Igangsætter skift mellem de to formularer
 function SwapForms() {
     if (swapInProgress) {
         return;
@@ -42,6 +43,7 @@ function SwapForms() {
     }
 }
 
+// Når loginformularen færdiggører en animation
 function LoginFadeCallback() {
     if (formLogin.classList.contains("FadeOut")) {
         if (formLogin.classList.contains("Hack")) {
@@ -59,6 +61,7 @@ function LoginFadeCallback() {
     }
 }
 
+// Når registreringsformularen færdiggører en animation
 function RegisterFadeCallback() {
     if (formRegister.classList.contains("FadeOut")) {
         formRegister.classList.add("Hidden");
@@ -99,6 +102,9 @@ function RegisterLoginCreds() {
 
     sessionStorage.setItem("firstname", regFirstName.value);
     sessionStorage.setItem("lastname", regLastName.value);
+
+    alert("Bruger oprettet!");
+    SwapForms();
 }
 
 window.onload = Entry;

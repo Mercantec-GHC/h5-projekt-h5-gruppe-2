@@ -1,11 +1,3 @@
-function StoreLoginCreds() {
-
-}
-
-function PrintLoginCreds() {
-
-}
-
 function IsLoggedIn() {
     return sessionStorage.getItem("loggedin");
 }
@@ -39,6 +31,7 @@ function GotoLoginPage() {
     window.open("/login.html", "_self");
 }
 
+// Kaldes ingen steder fra, og er pt kun til test
 function LogOut() {
     sessionStorage.setItem("loggedin", "0");
 }

@@ -1,6 +1,0 @@
-@h5_2o_MAIN_HostAddress = http://localhost:5049
-
-GET {{h5_2o_MAIN_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

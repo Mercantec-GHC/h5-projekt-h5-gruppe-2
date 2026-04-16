@@ -1,0 +1,275 @@
+body {
+    margin: 0px;
+    /*
+    background-color: rgb(255, 255, 255);
+    */
+}
+
+.TopBar {
+    background-color: rgb(255, 195, 75);
+    height: 40px;
+    display: flex;
+    
+}
+
+#userPivot {
+    display: flex;
+    align-self: center;
+    margin-left: auto;
+    margin-right: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.ColumnDisplay {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1;
+    min-width: 0;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+}
+
+.LeftColumn {
+    display: flex;
+    flex: 2;
+}
+
+.MiddleColumn {
+    display: flex;
+    flex: 5;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 16px;
+
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(250, 250, 250);
+    border-radius: 8px;
+
+    background-color: rgb(250, 250, 250);
+}
+
+.RightColumn {
+    display: flex;
+    flex: 2;
+}
+
+/* Index */
+
+
+
+/* Login */
+
+.LoginDiv {
+    display: flex;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -55%);
+    
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+}
+
+.LoginContainer {
+    display: flex;
+    width: max-content;
+    position: absolute;
+    visibility: hidden;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.LoginContainer.FadeIn {
+    visibility: visible;
+    position: inherit;
+    animation-name: fadeIn;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-duration: 300ms;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.LoginContainer.FadeOut {
+    visibility: visible;
+    position: inherit;
+    animation-name: fadeOut;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-duration: 300ms;
+}
+
+.LoginContainer.Hack {
+    display: flex;
+    visibility: visible;
+    position: inherit;
+}
+
+.LoginContainer.Hidden {
+    visibility: hidden;
+    position: absolute;
+}
+
+
+.FormHeader {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 32px;
+}
+
+.FormPair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 24px;
+}
+
+.FormPair span {
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 4px;
+}
+
+.FormPair input {
+
+}
+
+
+/* Dashboard */
+
+#dataToolLine {
+    display: flex;
+    width: calc(100% - 36px);
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+#dataToolLineLeft {
+    
+}
+
+#dataToolLineRight {
+    
+}
+
+.DataButton {
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgb(255, 195, 75);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+
+    padding: 6px 8px;
+    
+    border-radius: 4px;
+    border-width: 2px;
+    border-color: rgb(255, 190, 70);
+
+    transition-duration: 0.4s;
+}
+
+.DataButton:hover {
+    background-color: rgb(255, 220, 100);
+}
+
+.GraphContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 2 / 1;
+    min-width: 0;
+}
+
+.Graph {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.TableContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+
+    width: 60%;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.TableDataTop {
+    /*
+    background-color: #04AA6D;
+    */
+    
+    background-color: rgb(55, 160, 235);
+
+    /*
+    position: sticky;
+    top: 0px;
+    */
+}
+
+.TableDateHeader {
+    /*
+    background-color: #04aa9c;
+    */
+
+    background-color: rgb(115, 185, 250);
+    position: sticky;
+
+    /*
+    top: 35px;
+    */
+    top: -1px;
+}
+
+.Table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    table-layout: fixed;
+}
+
+.Table th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: white;
+}
+
+.Table td, th {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+.Table tr:nth-child(even of :not(.TablePatternBreaker)){
+    background-color: #f2f2f2;
+}
+
+.Table tr:nth-child(odd of :not(.TablePatternBreaker)){
+    background-color: #ffffff;
+}

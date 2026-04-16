@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Platform</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script defer src="scr_common.js"></script>
+    <script defer src="scr_login.js"></script>
+</head>
+<body>
+    <div class="TopBar">
+        <div id="userPivot"></div>
+    </div>
+
+    <div id="formDiv" class="LoginDiv">
+        <div id="formLogin" class="LoginContainer">
+            <span class="FormHeader">Eksisterende bruger</span>
+
+            <div class="FormPair">
+                <span>Brugernavn</span>
+                <input id="loginUN" type="text">
+            </div>
+            <div class="FormPair">
+                <span>Adgangskode</span>
+                <input id="loginPW" type="text">
+            </div>
+            
+            <button onclick="TestLogin()">Log ind</button>
+            <button onclick="SwapForms()">Ny bruger?</button>
+        </div>
+
+        <div id="formRegister" class="LoginContainer">
+            <span class="FormHeader">Ny bruger</span>
+
+            <div class="FormPair">
+                <span>Fornavn</span>
+                <input id="regNameF" type="text">
+            </div>
+            <div class="FormPair">
+                <span>Efternavn</span>
+                <input id="regNameL" type="text">
+            </div>
+            <div class="FormPair">
+                <span>Brugernavn</span>
+                <input id="regUN" type="text">
+            </div>
+            <div class="FormPair">
+                <span>Adgangskode</span>
+                <input id="regPW" type="text">
+            </div>
+
+            <button onclick="RegisterLoginCreds()">Opret ny bruger</button>
+            <button onclick="SwapForms()">Eksisterende bruger?</button>
+        </div>
+    </div>
+    
+</body>
